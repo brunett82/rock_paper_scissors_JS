@@ -1,6 +1,6 @@
 //Variables where outcome from each game are stored and tracked
 var wins = 0;
-var loses = 0;
+var losses = 0;
 var ties = 0;
 
 //Options that computer will pick from to play game
@@ -18,7 +18,7 @@ var game = function(){
     //If statement used to alert player of a tie and add 1 to the var ties for record keeping
     if (userChoice === compChoice){
         ties++;
-        alert('Tie!')
+        alert('Tie!');
     } 
     /*Else if statement used to evaluate the selections of the player and the computer.  If one of the conditions is true, 1 point is added to the wins variable and an alert is fired stating the player won*/
     else if (
@@ -27,6 +27,24 @@ var game = function(){
         (userChoice === 'S' && compChoice === 'P')
     )   {
         wins++;
-        alert('You win!')
+        alert('Winner!');
     }
-}
+    //If conditions above are not met this statement will assume the player lost the game
+    else {
+        loses++;
+        alert('Loser!');
+    }
+    //Alert to be shown between games to show the running tally of wins, losses, and ties during the current session
+    alert(
+        "Totals:\n Wins: " + wins "\nLosses: " + losses + "\nTies: " + ties
+    );
+    //Variable that creates a confirmation pop-up to ask if the player would like to play another round
+    var nextRound = confirm("Would you like to play again?")
+    //If player chooses yes in the confirmation pop-up the function starts again
+    if (nextRound) {
+        game();
+    }
+};
+
+//Runs the game function when the browser opens
+game();
