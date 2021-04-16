@@ -18,6 +18,15 @@ var game = function(){
     //If statement used to alert player of a tie and add 1 to the var ties for record keeping
     if (userChoice === compChoice){
         ties++;
-        window.alert('Tie!')
+        alert('Tie!')
+    } 
+    /*Else if statement used to evaluate the selections of the player and the computer.  If one of the conditions is true, 1 point is added to the wins variable and an alert is fired stating the player won*/
+    else if (
+        (userChoice === 'R' && compChoice === 'S') ||
+        (userChoice === 'P' && compChoice === 'R') ||
+        (userChoice === 'S' && compChoice === 'P')
+    )   {
+        wins++;
+        alert('You win!')
     }
 }
